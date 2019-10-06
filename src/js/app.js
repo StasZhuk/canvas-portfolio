@@ -7,6 +7,12 @@ if(NODE_ENV === 'development') {
   require('../views/pages/index.twig');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
 
-})
+
+document.addEventListener('DOMContentLoaded', () => {
+  // document.body.addEventListener('click', () => {
+  //   document.body.classList.toggle('is-css');
+  // });
+
+  require('./Canvas');
+});

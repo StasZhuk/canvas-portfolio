@@ -3,13 +3,14 @@
 
 {% block content %}
 
-    {# section BEGIN #}
-    <section class="section">
-        <div class="center">
-            <div class="app" id="app"></div>
-        </div>
-    </section>
-    {# section END #}
+    <div class="section-promo">
+        <canvas class="canvas" height="600" width="800" id="canvas"></canvas>
+    </div>
+    <!-- <div class="canvas" width="800" height="700" id="canvas">
+        {% for item in 1..210 %}
+            <span class="p-{{loop.index}}"></span>
+        {% endfor %}
+    </div> -->
 
 {% endblock %}
 
