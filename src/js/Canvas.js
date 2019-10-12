@@ -15,53 +15,53 @@ export default function Canvas() {
     let from = 'stanislav';
 
     document.body.addEventListener('click', () => {
-        let tl = new TimelineMax({
-            onComplete: () => {
-                if (from === 'stanislav') {
-                    from = 'zhukovskiy';
-                    currentState = Array.prototype.slice.call(padWORD2);
-                    toState = Array.prototype.slice.call(padWORD1);
-                } else if (from === 'zhukovskiy') {
-                    from = 'stanislav';
-                    currentState = Array.prototype.slice.call(padWORD1);
-                    toState = Array.prototype.slice.call(padWORD2);
-                }
+        let tl = new TimelineMax({})
+        //     onComplete: () => {
+        //         if (from === 'stanislav') {
+        //             from = 'zhukovskiy';
+        //             currentState = Array.prototype.slice.call(padWORD2);
+        //             toState = Array.prototype.slice.call(padWORD1);
+        //         } else if (from === 'zhukovskiy') {
+        //             from = 'stanislav';
+        //             currentState = Array.prototype.slice.call(padWORD1);
+        //             toState = Array.prototype.slice.call(padWORD2);
+        //         }
 
-                document.body.style.pointerEvents = 'initial';
-            },
-            onUpdate: () => {
-                render(currentState)
-            },
-        });
+        //         document.body.style.pointerEvents = 'initial';
+        //     },
+        //     onUpdate: () => {
+        //         render(currentState)
+        //     },
+        // });
 
         document.body.style.pointerEvents = 'none';
-        tl.to(currentState, 1, toState);
-        // staggerArray(
-        //     currentState,
-        //     toState,
-        //     {
-        //         duration: 0.8,
-        //         stagger:0.001,
-        //         round:true,
-        //         ease: Back.easeInOut.config(1.7),
-        //         onComplete: () => {
-        //             if (from === 'stanislav') {
-        //                 from = 'zhukovskiy';
-        //                 currentState = Array.prototype.slice.call(padWORD2);
-        //                 toState = Array.prototype.slice.call(padWORD1);
-        //             } else if (from === 'zhukovskiy') {
-        //                 from = 'stanislav';
-        //                 currentState = Array.prototype.slice.call(padWORD1);
-        //                 toState = Array.prototype.slice.call(padWORD2);
-        //             }
+        // tl.to(currentState, 1, toState);
+        staggerArray(
+            currentState,
+            toState,
+            {
+                duration: 1,
+                stagger:0.002,
+                round:true,
+                ease: Back.easeInOut.config(1.7),
+                onComplete: () => {
+                    if (from === 'stanislav') {
+                        from = 'zhukovskiy';
+                        currentState = Array.prototype.slice.call(padWORD2);
+                        toState = Array.prototype.slice.call(padWORD1);
+                    } else if (from === 'zhukovskiy') {
+                        from = 'stanislav';
+                        currentState = Array.prototype.slice.call(padWORD1);
+                        toState = Array.prototype.slice.call(padWORD2);
+                    }
 
-        //             document.body.style.pointerEvents = 'initial';
-        //         },
-        //         onUpdate: () => {
-        //             render(currentState)
-        //         },
-        //     }
-        // );
+                    document.body.style.pointerEvents = 'initial';
+                },
+                onUpdate: () => {
+                    render(currentState)
+                },
+            }
+        );
 
     });
 
